@@ -1,48 +1,29 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //https://leetcode.com/problems/group-anagrams/
 public class GroupAnagrams {
-	
+
 	public List<List<String>> groupAnagrams(String[] strs) {
-		List<String> tempAnagram = new ArrayList();
-
-		List<List<String>> answer = new ArrayList<List<String>>();
-
-		for (int x = 0; x < strs.length; x++) {
-			
-			List<String> stringOne = Arrays.asList(strs[x].split(""));
-			System.out.println("First x:" + x + stringOne.toString());
-			
-			
-			for (int i = 0; i < strs.length; i++) {
-				
-				List<String> stringTwo = Arrays.asList(strs[i].split(""));
-				System.out.println("First i:" + x + stringTwo.toString());
-				
-				
-				if ((stringOne.size() == stringTwo.size()) && stringOne.containsAll(stringTwo)
-						&& stringTwo.containsAll(stringOne)) {
-					
-					System.out.println("strs[x]" + strs[x]);
-//					tempAnagram.add(strs[x]);
-
-					System.out.println("strs[i]" + strs[i]);
-					tempAnagram.add(strs[i]);
-					
-					System.out.println("tempAnagram" + tempAnagram.toString());
-					answer.add(tempAnagram);
-					
-					System.out.println("\n");
-				}
-				
+		if (strs.length == 0)
+			return new ArrayList();
+		Map<String, List> ans = new HashMap<String, List>();
+		for (String s : strs) {
+			char[] ca = s.toCharArray();
+			Arrays.sort(ca);
+			String key = String.valueOf(ca);
+			if (!ans.containsKey(key)) {
+				ans.put(key, new ArrayList());
 			}
+			ans.get(key).add(s);
 		}
-        return answer;
+		return new ArrayList(ans.values());
 	}
+	/*
+	 * 
+	 */
 
 }
-	
-
-
