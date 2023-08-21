@@ -1,9 +1,10 @@
 public class Main {
 	public static void main(String[] args) {
 	
-		GroupAnagrams test = new GroupAnagrams();
-		String[] strs= {"eat","tea","code","tab","era"};
-		System.out.println(test.groupAnagrams(strs));
+		RemoveElement test = new RemoveElement();
+		int[] nums1= {0,1,2,2,3,0,4,2};
+
+		test.removeElement(nums1, 2);
 	}
 
 }
