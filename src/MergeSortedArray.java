@@ -18,7 +18,7 @@ public class MergeSortedArray {
 			}
 		} else {
 			Arrays.sort(nums1);
-		}
+		} 
 		Arrays.sort(nums1);
 	}
 
